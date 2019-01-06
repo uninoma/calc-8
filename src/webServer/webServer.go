@@ -1,0 +1,29 @@
+package webServer
+
+import (
+	"net/http"
+	"fmt"
+	"path/filepath"
+	"os"
+	"log"
+	"../ws"
+)
+
+func Init() {
+
+	fs := http.FileServer(http.Dir("./bin/static"))
+	http.Handle("/", fs)
+	http.HandleFunc("/yo",func(res http.ResponseWriter,req *http.Request){
+		fmt.Fprintf(res,"hello yo")
+		dir, err := filepath.Abs(filepath.Dir(os.Args[0]))
+		if err != nil {
+			log.Fatal(err)
+		}
+		fmt.Println(dir)
+	});
+	http.HandleFunc("/ws", func(writer http.ResponseWriter, request *http.Request) {
+		ws.Serve(writer,request)
+	})
+
+	http.ListenAndServe(":3434",nil)
+}
