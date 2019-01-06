@@ -10,7 +10,7 @@ WS.onmessage=function (ev) {
         case "result":
             $("#display .input").text(data.data);
         case "MR":
-            // $("#display .input").text($("#display .input").text()+data.data);
+            $("#display .input").text($("#display .input").text()+data.data);
 
     }
 }

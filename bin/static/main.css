@@ -68,17 +68,17 @@ body{
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
     #display{
-        font-size: 2vw;
+        font-size: 8vw;
     }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
     #calculator{
-        width: 460px !important;
+        width: 75vw !important;
     }
     .btn-block{
-        font-size: 4vh !important;
+        font-size: 1.4em !important;
         width: 8vw !important;
     }
 }
