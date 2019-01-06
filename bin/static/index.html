@@ -7,193 +7,56 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/> <!--320-->
 <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/segment7" type="text/css"/>
+<link rel="stylesheet" media="screen" href="./main.css" type="text/css"/>
 
 <script src="./js/ws.js"></script>
+<script src="./js/main.js"></script>
 <script>
-   $(document).ready(
-       function() {
-         $("button").click(function(event) {
-               console.log(event.target.innerText)
-               displayController(event.target.innerText)
-             });
-       }
-   );
-
-   function displayController(val) {
-      switch(val){
-                        case "C":
-                            $("#display .input").html("");
-                            break;
-                        case "MC":
-                             console.log(val);
-                             var dataToSend = JSON.stringify({"type":"calculate","value":"MC"});
-                             WS.send(dataToSend);
-                             break;
-                        case "MR":
-                            sendData("MR","")
-                             break;
-                        case "M+":
-                            sendData("M+",$("#display .input").text())
-                             break;
-                        case "M-":
-                            sendData("M-",$("#display .input").text())
-                             break;
-                        case "=":
-                            sendData("calculate",$("#display .input").text())
-                            break;
-                        default:
-                            $("#display .input").html($("#display .input").html()+val);
-
-                            break;
-                    }
-   }
-
-   function sendData(type,data) {
-        var dataToSend = JSON.stringify({"type":type,"data":data});
-        WS.send(dataToSend);
-   }
 
 </script>
-<style>
-@font-face {
-  font-family: 'Digit';
-  src: url('01 Digit.ttf');
-} 
-body{
-    background-color: darkslategrey;
-    font-family: 'Digit';
-    color: darkgray;
-}
-#calculator{
-    background-color: darkgray;
-}
-#display{
-        background-color: black;
-        font-size: 10vw;
-        border-radius: 45px;
-        overflow: hidden;
-    }
-#display p{
-    margin: 0;
-}
-.btn-block{
-        border-radius: 45px;
-        font-size: 5vw;
-        letter-spacing: 4px;
-    }
-.num{
-    color: darkgreen;
-}
 
-    
-/*// Small devices (landscape phones, 576px and up)*/
-@media (min-width: 576px) {
-#display{
-        font-size: 3vw;
-    }
-    .btn-block{
-        font-size: 3vw;
-    }
-}
-
-
-@media all and (orientation:portrait) {
-      #calculator{
-                position:absolute;
-                bottom:0;
-        }
-}
-
-@media all and (orientation:landscape) {
-  /* Style adjustments for landscape mode goes here */
-}
-
-
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
-
-}
-
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
-        #display{
-            font-size: 6vw;
-            margin: 2px !important;
-        }
-}
-
-/* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
-    #display{
-        font-size: 3vw;
-    }
-}
-
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
-        #calculator{
-            width: 460px !important;
-        }
-        .btn-block{
-            font-size: 4vh !important;
-            width: 8vw !important;
-        }
-}
-
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {
-
-}
-
-.blink{
-		color: rgb (0, 137, 226);
-		animation: blink 1s infinite;
-	 }
-
-	 @keyframes blink{
-		0%{opacity: 1;}
-		75%{opacity: 1;}
-		76%{ opacity: 0;}
-		100%{opacity: 0;}
-	 }
-
-</style>
 </head>
 <body>
-<div id="calculator" class="container pt-2 pt-lg-5 pb-2">
-<div class="d-flex flex-row justify-content-end mt-5" id="display">
-<p class="input"></p><p class="mr-2 blink">_</p>
+<div id="calculator" class="container pb-2 pt-2">
+<div class="d-flex flex-row justify-content-end" id="display">
+<p class="input">0</p><p class="mr-2 blink">_</p>
 </div>
 <div class="d-flex flex-row justify-content-center">
 <div></div>
     <button class="btn btn-primary btn-block mt-2 mr-2">MC</button>
     <button class="btn btn-primary btn-block mr-2">M+</button>
     <button class="btn btn-primary btn-block mr-2">M-</button>
-    <button class="btn btn-primary btn-block">MR</button>
+    <button class="btn btn-primary btn-block mr-2">MR</button>
+    <button class="btn btn-primary btn-block w-25 mt-2 mr-2">(</button>
+    <button class="btn btn-primary btn-block w-25 mt-2 mr-2">)</button>
+
 </div>
 <div class="d-flex flex-row justify-content-start">
-
     <button class="btn btn-info btn-block w-25 mt-2 mr-2 num">1</button>
     <button class="btn btn-info btn-block w-25 mr-2 num">2</button>
     <button class="btn btn-info btn-block w-25 mr-2 num">3</button>
+    <button class="btn btn-primary btn-block w-25 mt-2 mr-2">&#8668;</button>
     <button class="btn btn-success btn-block w-25">+</button>
 </div>
 <div class="d-flex flex-row justify-content-start">
     <button class="btn btn-info btn-block w-25 mt-2 mr-2 num">4</button>
     <button class="btn btn-info btn-block w-25 mr-2 num">5</button>
     <button class="btn btn-info btn-block w-25 mr-2 num">6</button>
+    <button class="btn btn-primary btn-block w-25 mt-2 mr-2">^</button>
     <button class="btn btn-success btn-block w-25">-</button>
 </div>
 <div class="d-flex flex-row justify-content-start">
     <button class="btn btn-info btn-block w-25 mt-2 mr-2 num">7</button>
     <button class="btn btn-info btn-block w-25 mr-2 num">8</button>
     <button class="btn btn-info btn-block w-25 mr-2 num">9</button>
+    <button class="btn btn-primary btn-block w-25 mt-2 mr-2"></button>
     <button class="btn btn-success btn-block w-25">*</button>
 </div>
 <div class="d-flex justify-content-end">
     <button class="btn btn-danger btn-block w-25 mt-2 mr-2">C</button>
     <button class="btn btn-info btn-block w-25 mt-2 mr-2 num">0</button>
     <button class="btn btn-primary btn-block w-25 mt-2 mr-2">=</button>
+    <button class="btn btn-primary btn-block w-25 mt-2 mr-2">.</button>
     <button class="btn btn-success btn-block w-25 mt-2">/</button>
 </div>
 </div>

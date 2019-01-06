@@ -14,3 +14,14 @@ WS.onmessage=function (ev) {
 
     }
 }
+
+WS.onclose=function (ev) {
+    console.log("socket closed",ev)
+}
+
+WS.onerror=function (ev) {
+
+    WS.onclose=function (ev) {
+        console.log("socket errr",ev)
+    }
+}

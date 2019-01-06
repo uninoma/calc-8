@@ -4,10 +4,8 @@ import (
 	"net/http"
 	"log"
 	"github.com/gorilla/websocket"
-	"strconv"
-	"go/ast"
-	"go/parser"
-	"go/token"
+	"github.com/Knetic/govaluate"
+	"fmt"
 )
 var lastId=0;
 var clients=make(map[int]*Client)
@@ -24,12 +22,13 @@ type Client struct {
 	conn  *websocket.Conn
 }
 
+type msg struct{
+	Type string `json:"type"`
+	Data string `json:"data"`
+}
 
 func Serve(writer http.ResponseWriter,request *http.Request) {
-	type msg struct{
-		Type string `json:"type"`
-		Data string `json:"data"`
-	}
+
 	conn, err := upgrader.Upgrade(writer,request,nil)
 	log.Println("ws request")
 	if err != nil {
@@ -68,16 +67,7 @@ func Serve(writer http.ResponseWriter,request *http.Request) {
 			case "calculator":
 				print(m.Data)
 			case "calculate":
-				log.Println("value calculate:"+m.Data)
-				expr,err:=parser.ParseExpr(m.Data)
-				if err !=nil{
-					log.Println(err)
-				}
-				result:=Eval(expr)
-				log.Println(result)
-				m.Type="result"
-				m.Data=strconv.Itoa(result)
-				err=conn.WriteJSON(m)
+				err:=conn.WriteJSON(calculate(m))
 				if err !=nil{
 					log.Println(err)
 				}
@@ -85,36 +75,21 @@ func Serve(writer http.ResponseWriter,request *http.Request) {
 		}
 	}
 }
-
-func Eval(exp ast.Expr) int {
-	switch exp := exp.(type) {
-	case *ast.BinaryExpr:
-		return EvalBinaryExpr(exp)
-	case *ast.BasicLit:
-		switch exp.Kind {
-		case token.INT:
-			i, _ := strconv.Atoi(exp.Value)
-			return i
+func calculate(m msg) msg{
+	log.Println("value calculate:"+m.Data)
+	resultStr:=""
+	if m.Data!=""{
+		expression, err := govaluate.NewEvaluableExpression(string(m.Data))
+		result, err := expression.Evaluate(nil)
+		if err !=nil{
+			fmt.Println(err)
 		}
+		resultStr = fmt.Sprintf("%v", result)
+	}else{
+		resultStr="0"
 	}
-
-	return 0
-}
-
-func EvalBinaryExpr(exp *ast.BinaryExpr) int {
-	left := Eval(exp.X)
-	right := Eval(exp.Y)
-
-	switch exp.Op {
-	case token.ADD:
-		return left + right
-	case token.SUB:
-		return left - right
-	case token.MUL:
-		return left * right
-	case token.QUO:
-		return left / right
-	}
-
-	return 0
+	log.Println(resultStr)
+	m.Data=resultStr
+	m.Type="result"
+	return m
 }
