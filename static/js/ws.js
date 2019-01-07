@@ -1,4 +1,8 @@
-var WS = new WebSocket("ws://"+location.host+"/ws");
+if (location.protocol.match("https")){
+    var WS = new WebSocket("ws://"+location.host+"/ws");
+}else{
+    var WS = new WebSocket("ws://"+location.host+"/ws");
+}
 WS.onopen=function () {
     console.log("web socket open")
 }
