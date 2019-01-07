@@ -1,0 +1,6 @@
+package: github.com/uninoma/calculator
+import:
+- package: github.com/Knetic/govaluate
+  version: 9aa49832a739dcd78a5542ff189fb82c3e423116
+- package: github.com/gorilla/websocket
+  version: 6f34763140ed8887aed6a044912009832b4733d7
