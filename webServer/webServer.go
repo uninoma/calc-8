@@ -29,6 +29,6 @@ func Init() {
 	http.HandleFunc("/ws", func(writer http.ResponseWriter, request *http.Request) {
 		ws.Serve(writer,request)
 	})
-
+	fmt.Println("starting http server")
 	http.ListenAndServe(port,nil)
 }
