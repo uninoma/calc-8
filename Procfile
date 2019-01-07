@@ -1,1 +1,2 @@
-web:github.com/uninoma/calculator
+web:calculator
+git
