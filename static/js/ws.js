@@ -13,8 +13,10 @@ WS.onmessage=function (ev) {
     switch (data.type){
         case "result":
             $("#display .input").text(data.data);
+            break;
         case "MR":
             $("#display .input").text($("#display .input").text()+data.data);
+            break;
 
     }
 }
