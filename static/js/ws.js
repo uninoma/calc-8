@@ -1,5 +1,5 @@
 if (location.protocol.match("https")){
-    var WS = new WebSocket("ws://"+location.host+"/ws");
+    var WS = new WebSocket("wss://"+location.host+"/ws");
 }else{
     var WS = new WebSocket("ws://"+location.host+"/ws");
 }
