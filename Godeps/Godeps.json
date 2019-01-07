@@ -2,6 +2,9 @@
 	"ImportPath": "github.com/uninoma/calculator",
 	"GoVersion": "go1.9",
 	"GodepVersion": "v80",
+	"Packages": [
+		"./..."
+	],
 	"Deps": [
 		{
 			"ImportPath": "github.com/Knetic/govaluate",

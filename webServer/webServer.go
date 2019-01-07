@@ -16,7 +16,7 @@ func Init() {
 	}else{
 		port=":"+port
 	}
-	fs := http.FileServer(http.Dir("./static"))
+	fs := http.FileServer(http.Dir("static"))
 	http.Handle("/", fs)
 	http.HandleFunc("/yo",func(res http.ResponseWriter,req *http.Request){
 		fmt.Fprintf(res,"hello yo")
