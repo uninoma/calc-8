@@ -12,7 +12,7 @@ import (
 func Init() {
 	port:=os.Getenv("PORT")
 	if port == ""{
-		port=":3434"
+		port=":80"
 	}else{
 		port=":"+port
 	}
