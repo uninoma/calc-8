@@ -6,7 +6,7 @@ import (
 	"path/filepath"
 	"os"
 	"log"
-	"../ws"
+	"github.com/uninoma/calculator/ws"
 )
 
 func Init() {

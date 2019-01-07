@@ -1,0 +1,17 @@
+{
+	"ImportPath": "github.com/uninoma/calculator",
+	"GoVersion": "go1.9",
+	"GodepVersion": "v80",
+	"Deps": [
+		{
+			"ImportPath": "github.com/Knetic/govaluate",
+			"Comment": "v3.0.0-39-g9aa4983",
+			"Rev": "9aa49832a739dcd78a5542ff189fb82c3e423116"
+		},
+		{
+			"ImportPath": "github.com/gorilla/websocket",
+			"Comment": "v1.2.0-7-g6f34763",
+			"Rev": "6f34763140ed8887aed6a044912009832b4733d7"
+		}
+	]
+}
