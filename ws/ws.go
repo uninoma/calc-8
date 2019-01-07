@@ -6,6 +6,7 @@ import (
 	"github.com/gorilla/websocket"
 	"github.com/Knetic/govaluate"
 	"fmt"
+	"strings"
 )
 var lastId=0;
 var clients=make(map[int]*Client)
@@ -54,6 +55,9 @@ func Serve(writer http.ResponseWriter,request *http.Request) {
 			break
 		}else{
 			switch m.Type{
+			case "alive?":
+				m.Data="yes"
+				conn.WriteJSON(m)
 			case "MC":
 				memory=""
 			case "MR":
@@ -78,7 +82,7 @@ func Serve(writer http.ResponseWriter,request *http.Request) {
 func calculate(m msg) msg{
 	log.Println("value calculate:"+m.Data)
 	resultStr:=""
-	if m.Data!=""{
+	if m.Data!="" && !strings.Contains(m.Data,"e"){
 		expression, err := govaluate.NewEvaluableExpression(string(m.Data))
 		result, err := expression.Evaluate(nil)
 		if err !=nil{

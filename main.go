@@ -17,13 +17,4 @@ func hello(w http.ResponseWriter, r *http.Request) {
 }
 func main() {
 	webServer.Init()
-	/*addr, err := determineListenAddress()
-	if err != nil {
-		log.Fatal(err)
-	}
-	http.HandleFunc("/", hello)
-	log.Printf("Listening on %s...\n", addr)
-	if err := http.ListenAndServe(addr, nil); err != nil {
-		panic(err)
-	}*/
 }
