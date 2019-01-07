@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"net/http"
 	"os"
-	_ "github.com/heroku/x/hmetrics/onload"
 )
 func determineListenAddress() (string, error) {
 	port := os.Getenv("PORT")
