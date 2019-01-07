@@ -52,6 +52,7 @@ func Serve(writer http.ResponseWriter,request *http.Request) {
 		if err!=nil{
 			log.Println("readJSON err:",err)
 			delete(clients,id)
+			conn.WriteMessage(websocket.CloseMessage, websocket.FormatCloseMessage(1000, "woops"))
 			break
 		}else{
 			switch m.Type{

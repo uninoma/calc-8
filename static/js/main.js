@@ -11,11 +11,7 @@ function displayController(val,callback) {
     if($("#display .input").text()[0]==0 && $("#display .input").text()[1] != "." && val!="."){
         $("#display .input").text($("#display .input").text().slice(1))
     }
-    sendData("alive?","",function (ev) {
-        if(!ev){
-            wsInit();
-        }
-    });
+
     switch(val){
         case "C":
             $("#display .input").html("");
@@ -48,9 +44,13 @@ function displayController(val,callback) {
     callback()
 }
 
-function sendData(type,data,callback) {
+function sendData(type,data) {
     var dataToSend = JSON.stringify({"type":type,"data":data});
-    WS.send(dataToSend,callback);
+    WS.send(dataToSend,function (ev) {
+        if(!ev){
+            wsInit();
+        }
+    });
 }
 function textDecrease(){
     var inputWidth=$(".input").width()
