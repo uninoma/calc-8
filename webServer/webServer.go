@@ -30,8 +30,6 @@ func Init() {
 		ws.Serve(writer,request)
 	})
 	fmt.Println("starting http server port:",port)
-	err:=http.ListenAndServe(port,nil)
-	if err !=nil{
-		fmt.Println(err)
-	}
+	log.Fatal(http.ListenAndServe(port,nil))
+
 }
