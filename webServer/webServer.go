@@ -10,7 +10,12 @@ import (
 )
 
 func Init() {
-
+	port:=os.Getenv("PORT")
+	if port == ""{
+		port=":3434"
+	}else{
+		port=":"+port
+	}
 	fs := http.FileServer(http.Dir("./bin/static"))
 	http.Handle("/", fs)
 	http.HandleFunc("/yo",func(res http.ResponseWriter,req *http.Request){
@@ -25,5 +30,5 @@ func Init() {
 		ws.Serve(writer,request)
 	})
 
-	http.ListenAndServe(":3434",nil)
+	http.ListenAndServe(port,nil)
 }
