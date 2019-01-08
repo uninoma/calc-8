@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ead7b769-395c-4438-b89b-71758ee4260d" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/static/js/main.js" afterPath="$PROJECT_DIR$/static/js/main.js" />
+      <change beforePath="$PROJECT_DIR$/static/main.css" afterPath="$PROJECT_DIR$/static/main.css" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -70,11 +69,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="169">
               <caret line="16" column="70" lean-forward="false" selection-start-line="16" selection-start-column="70" selection-end-line="16" selection-end-column="70" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/static/main.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="11" column="23" lean-forward="false" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -129,13 +138,13 @@
         <option value="$PROJECT_DIR$/Godeps/Godeps.json" />
         <option value="$PROJECT_DIR$/Procfile" />
         <option value="$PROJECT_DIR$/.godir" />
-        <option value="$PROJECT_DIR$/static/main.css" />
         <option value="$PROJECT_DIR$/webServer/webServer.go" />
         <option value="$PROJECT_DIR$/static/index.html" />
         <option value="$PROJECT_DIR$/main.go" />
         <option value="$PROJECT_DIR$/static/js/ws.js" />
         <option value="$PROJECT_DIR$/ws/ws.go" />
         <option value="$PROJECT_DIR$/static/js/main.js" />
+        <option value="$PROJECT_DIR$/static/main.css" />
       </list>
     </option>
   </component>
@@ -145,7 +154,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="141" />
     <option name="y" value="72" />
     <option name="width" value="1631" />
@@ -243,7 +252,7 @@
     <option name="remove_strategy" value="false" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="141" y="72" width="1920" height="1053" extended-state="7" />
+    <frame x="141" y="72" width="1920" height="1053" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27267876" sideWeight="0.49393415" order="0" side_tool="false" content_ui="combo" />
@@ -587,14 +596,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1386">
-          <caret line="77" column="17" lean-forward="false" selection-start-line="77" selection-start-column="17" selection-end-line="77" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/glide.yaml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -685,6 +686,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="169">
           <caret line="16" column="70" lean-forward="false" selection-start-line="16" selection-start-column="70" selection-end-line="16" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" column="23" lean-forward="false" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
           <folding />
         </state>
       </provider>
