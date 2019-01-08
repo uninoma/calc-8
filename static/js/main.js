@@ -11,6 +11,10 @@ function displayController(val,callback) {
     if($("#display .input").text()[0]==0 && $("#display .input").text()[1] != "." && val!="."){
         $("#display .input").text($("#display .input").text().slice(1))
     }
+    $("#display .input").text($("#display .input").text().replace(/^\+/,"0+"))
+    $("#display .input").text($("#display .input").text().replace(/^\-/,"0-"))
+    $("#display .input").text($("#display .input").text().replace(/^\//,"0/"))
+    $("#display .input").text($("#display .input").text().replace(/^\*/,"0*"))
     switch(val){
         case "C":
             $("#display .input").html("");
@@ -44,6 +48,10 @@ function displayController(val,callback) {
 }
 
 function sendData(type,data) {
+    var data = data;
+
+
+
     var dataToSend = JSON.stringify({"type":type,"data":data});
     WS.socket.send(dataToSend,function (ev) {
         if(!ev){
