@@ -4,8 +4,9 @@ import (
 	"net/http"
 	"log"
 	"github.com/gorilla/websocket"
-	"github.com/Knetic/govaluate"
+	"gopkg.in/Knetic/govaluate.v3"
 	"fmt"
+	"regexp"
 	"strings"
 )
 var lastId=0;
@@ -83,10 +84,13 @@ func Serve(writer http.ResponseWriter,request *http.Request) {
 func calculate(m msg) msg{
 	log.Println("value calculate:"+m.Data)
 	resultStr:=""
-	if m.Data!="" && !strings.Contains(m.Data,"e"){
+	r,_:=regexp.Compile("(([a-z]|\\d+)[\\+\\-\\/\\*]){1,}([a-z]|\\d+)(=([a-z]|\\d+))?")
+	rhooks,_:=regexp.Compile(".*[^(]$")
+
+	if m.Data!="" && r.MatchString(m.Data) && !strings.ContainsAny(m.Data,"e") && rhooks.MatchString(m.Data){
 		expression, err := govaluate.NewEvaluableExpression(string(m.Data))
 		result, err := expression.Evaluate(nil)
-		if err !=nil{
+		if err != nil{
 			fmt.Println(err)
 		}
 		resultStr = fmt.Sprintf("%v", result)

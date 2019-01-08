@@ -11,7 +11,6 @@ function displayController(val,callback) {
     if($("#display .input").text()[0]==0 && $("#display .input").text()[1] != "." && val!="."){
         $("#display .input").text($("#display .input").text().slice(1))
     }
-
     switch(val){
         case "C":
             $("#display .input").html("");
