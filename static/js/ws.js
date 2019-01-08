@@ -46,7 +46,7 @@ function wsInit(callback){
     WS.socket=ws;
     WS.socket.onopen=WS.onopen;
     WS.socket.onclose=WS.onclose;
-    WS.socket.onmessage=WS.onmessage;he
+    WS.socket.onmessage=WS.onmessage;
     WS.socket.onerror=WS.onerror;
     callback();
 }
