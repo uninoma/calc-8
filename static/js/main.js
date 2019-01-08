@@ -45,7 +45,7 @@ function displayController(val,callback) {
 
 function sendData(type,data) {
     var dataToSend = JSON.stringify({"type":type,"data":data});
-    WS.send(dataToSend,function (ev) {
+    WS.socket.send(dataToSend,function (ev) {
         if(!ev){
             wsInit();
         }
