@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ead7b769-395c-4438-b89b-71758ee4260d" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/go_build_calculator_" afterPath="$PROJECT_DIR$/go_build_calculator_" />
       <change beforePath="$PROJECT_DIR$/ws/ws.go" afterPath="$PROJECT_DIR$/ws/ws.go" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,8 +28,8 @@
       <file leaf-file-name="ws.go" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ws/ws.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="101" column="35" lean-forward="false" selection-start-line="101" selection-start-column="35" selection-end-line="101" selection-end-column="35" />
+            <state relative-caret-position="417">
+              <caret line="109" column="24" lean-forward="false" selection-start-line="109" selection-start-column="24" selection-end-line="109" selection-end-column="24" />
               <folding>
                 <element signature="e#12#133#0" expanded="true" />
               </folding>
@@ -681,8 +680,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ws/ws.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="101" column="35" lean-forward="false" selection-start-line="101" selection-start-column="35" selection-end-line="101" selection-end-column="35" />
+        <state relative-caret-position="417">
+          <caret line="109" column="24" lean-forward="false" selection-start-line="109" selection-start-column="24" selection-end-line="109" selection-end-column="24" />
           <folding>
             <element signature="e#12#133#0" expanded="true" />
           </folding>

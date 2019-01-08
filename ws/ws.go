@@ -107,7 +107,7 @@ func calculate(m msg) msg{
 		}
 		resultStr = fmt.Sprintf("%v", result)
 	}else{
-		resultStr="0"
+		resultStr=m.Data
 	}
 	log.Println(resultStr)
 	m.Data=resultStr
