@@ -86,8 +86,20 @@ func calculate(m msg) msg{
 	resultStr:=""
 	r,_:=regexp.Compile("(([a-z]|\\d+)[\\+\\-\\/\\*]){1,}([a-z]|\\d+)(=([a-z]|\\d+))?")
 	rhooks,_:=regexp.Compile(".*[^(]$")
+	rMinus,_:=regexp.Compile(".*[^-]$")
+	rPlus,_:=regexp.Compile(".*[^+]$")
+	rMulty,_:=regexp.Compile(".*[^*]$")
+	rdevide,_:=regexp.Compile(".*[^/]$")
 
-	if m.Data!="" && r.MatchString(m.Data) && !strings.ContainsAny(m.Data,"e") && rhooks.MatchString(m.Data){
+
+	if m.Data!="" &&
+		r.MatchString(m.Data) &&
+		!strings.ContainsAny(m.Data,"e") &&
+		rhooks.MatchString(m.Data) &&
+		rMinus.MatchString(m.Data)&&
+		rPlus.MatchString(m.Data)&&
+		rMulty.MatchString(m.Data)&&
+		rdevide.MatchString(m.Data){
 		expression, err := govaluate.NewEvaluableExpression(string(m.Data))
 		result, err := expression.Evaluate(nil)
 		if err != nil{
